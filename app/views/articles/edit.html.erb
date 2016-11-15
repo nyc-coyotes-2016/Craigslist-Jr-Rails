@@ -1,0 +1,38 @@
+<% provide(:title, 'Edit Your Listing') %>
+<div class="container">
+  <h2>Edit Your Listing</h2>
+  <%= form_for @article, url: category_article_path(@article.category, @article) do |f| %>
+  <%= render partial: 'application/errors', layout: false, locals: { errors: @errors } %>
+
+    <p>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </p>
+
+    <p>
+      <%= f.label :price %>
+      <%= f.number_field :price %>
+    </p>
+
+    <p>
+      <%= f.label :location %>
+      <%= f.text_field :location %>
+    </p>
+
+    <p>
+      <%= f.label :email %>
+      <%= f.email_field :email %>
+    </p>
+
+    <div class="input-field col s12">
+      <textarea id="description" class="materialize-textarea" name="article[description]" ><%= @article.description %></textarea>
+      <label for="description">Listing description</label>
+    </div>
+
+    <button class="waves-effect waves-light btn" type="submit">Update listing</button>
+  <% end %>
+
+  <p>
+    <%= link_to 'Categories', categories_path %>  |  <%= link_to 'More listings', category_path(@article.category) %>
+  </p>
+</div>

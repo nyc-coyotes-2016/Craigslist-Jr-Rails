@@ -1,0 +1,38 @@
+<% provide(:title, 'Create New Listing') %>
+<div class="container">
+  <h2>Create New Listing</h2>
+  <%= form_for :article, url: category_articles_path(@category) do |f| %>
+  <%= render partial: 'application/errors', layout: false, locals: { errors: @errors } %>
+
+    <p>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </p>
+
+    <p>
+      <%= f.label :price %>
+      <%= f.number_field :price %>
+    </p>
+
+    <p>
+      <%= f.label :location %>
+      <%= f.text_field :location %>
+    </p>
+
+    <p>
+      <%= f.label :email %>
+      <%= f.email_field :email %>
+    </p>
+
+    <div class="input-field col s12">
+      <textarea id="description" class="materialize-textarea" name="article[description]"></textarea>
+      <label for="description">Listing description</label>
+    </div>
+
+    <button class="waves-effect waves-light btn" type="submit">Create listing</button>
+  <% end %>
+
+  <p>
+    <%= link_to 'Categories', categories_path %>  |  <%= link_to 'More listings', category_path(@category) %>
+  </p>
+</div>

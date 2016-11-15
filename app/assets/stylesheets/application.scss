@@ -1,0 +1,21 @@
+@import "materialize";
+ /*
+ *= require_tree .
+ *= require_self
+ */
+.article-title {
+  line-height: 2.7;
+}
+
+.posted-ago-time {
+  line-height: 0.5;
+}
+
+.article-description {
+  line-height: 3;
+  font-size: 24px;
+}
+
+.category-title {
+  line-height: 2.7;
+}

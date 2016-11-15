@@ -1,0 +1,20 @@
+<% provide(:title, 'Craigslist Jr. 👶 Categories') %>
+
+<nav class="center-align">
+  <div class="nav-wrapper">
+    <div class="deep-orange col s12">
+      <a href="/categories" class="breadcrumb">Craigslist Jr.</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <h2>Categories</h2>
+  <% if !@categories.empty? %>
+   <ul class="categories-list">
+     <% @categories.each do |category| %>
+      <li class="category-title"><%= link_to category.title, category_path(category) %></li>
+     <% end %>
+   </ul>
+  <% end %>
+</div>
