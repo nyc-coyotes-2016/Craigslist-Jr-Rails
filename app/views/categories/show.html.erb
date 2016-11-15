@@ -1,0 +1,24 @@
+<% provide(:title, @category.title) %>
+<nav class="center-align">
+  <div class="nav-wrapper">
+    <div class="deep-orange col s12">
+      <a href="/categories" class="breadcrumb">Categories</a>
+      <a href="/categories/<%= @category.id %>" class="breadcrumb"><%= @category.title %></a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <h2><%= @category.title %></h2>
+  <% if !@articles.empty? %>
+    <ul class="article-list">
+      <% @articles.each do |article| %>
+        <li class="article-title"><%= link_to article.format_listing_title , category_article_path(@category, article) %>     -- posted <%= time_ago_in_words(article.created_at) %> </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <strong>There aren't any listings under this category. <%= link_to 'list an item', new_category_article %> </strong>
+  <% end %>
+
+  <button class="btn waves-effect cyan lighten-4"><%= link_to 'List Item', new_category_article_path(@category) %></button>
+</div>

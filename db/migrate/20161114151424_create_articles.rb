@@ -6,8 +6,8 @@ class CreateArticles < ActiveRecord::Migration[5.0]
       t.string :location, null: false
       t.text :description, null: false, limit: 1000
       t.string :reference_url, null: false
+      t.string :email, null: false 
       t.integer :category_id, null: false
-      t.integer :user_id, null: false
 
       t.timestamps(null: false)
     end
